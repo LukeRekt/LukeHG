@@ -18,6 +18,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerAchievementAwardedEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -54,23 +55,19 @@ public class PlayerListener implements Listener {
 
 			ItemMeta itemmeta = item.getItemMeta();
 			itemmeta.setDisplayName("Kits");
-			
-			ItemStack itemr = new ItemStack(Material.STICK, 1);
-
-			ItemMeta itemmetar = item.getItemMeta();
-			itemmeta.setDisplayName("PIMPS DO NEGAO| JIAN Like");
-
+		
 			item.setItemMeta(itemmeta);
 			p.getInventory().setItem(0, new ItemStack(item));
 			
-			item.setItemMeta(itemmetar);
-			p.getInventory().setItem(1, new ItemStack(itemr));
 			
 			World mundo = Bukkit.getWorld("world");
 			Location location = new Location(mundo, -5, 90, 9);
 			p.teleport(location);
 			
 
+		}
+		if(plugin.hasServerStage(ServerStage.ANDAMENTO) || plugin.hasServerStage(ServerStage.INVENCIBILIDADE)) {
+		p.kickPlayer("Fallou amigao");
 		}
 	}
 	@EventHandler
@@ -79,6 +76,11 @@ public class PlayerListener implements Listener {
 		Player p = e.getEntity();
 		plugin.playersInGame.remove(p.getUniqueId());
 		p.sendMessage("dead por " + p.getUniqueId());
+	}
+	@EventHandler
+	public void onSair(PlayerQuitEvent e) {
+		Player p = e.getPlayer();
+		plugin.playersInGame.remove(p.getUniqueId());
 	}
 	@EventHandler
 	public void onAchiev(PlayerAchievementAwardedEvent e) {

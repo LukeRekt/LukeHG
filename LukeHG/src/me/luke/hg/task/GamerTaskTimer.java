@@ -16,6 +16,8 @@ public class GamerTaskTimer implements Runnable {
 	public GamerTaskTimer(Main plugin) {
 		this.plugin = plugin;
 	}
+	
+	
 
 	@Override
 	public void run() {
@@ -55,6 +57,12 @@ public class GamerTaskTimer implements Runnable {
 			}
 
 		}
+		if (plugin.TEMPO_FIM >= 1) {
+			plugin.TEMPO_FIM += 1;
+		}
+		if (plugin.TEMPO_FIM == 15) {
+		Bukkit.getServer().shutdown();
+		}
 
 		if (plugin.hasServerStage(ServerStage.ANDAMENTO) && plugin.playersInGame.size() == 1) {
 
@@ -62,20 +70,21 @@ public class GamerTaskTimer implements Runnable {
 
 			plugin.setServerStage(ServerStage.ACABOU);
 			plugin.updateScoreboard();
-			if (plugin.hasServerStage(ServerStage.ACABOU)) {
-
+			if (plugin.hasServerStage(ServerStage.ACABOU) && plugin.TEMPO_FIM == 0) {
+				plugin.TEMPO_FIM += 1;
 				Bukkit.broadcastMessage("O player " + ganhador.getName() + "Ganhou o game!");
 				Bolo bolor = new Bolo();
 				bolor.loadBolo();
-			    ganhador.teleport(bolor.winloc);
-				plugin.TEMPO_FIM += 1;
+				ganhador.teleport(bolor.winloc);
+				
 
-				if (plugin.TEMPO_FIM >= 15) {
-					//Bukkit.getServer().shutdown();
-				}
+
+
+			}
 
 		}
 		
-		}
 	}
+	
 }
+
