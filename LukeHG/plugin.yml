@@ -1,0 +1,13 @@
+name: LukeHG
+version: 1.0
+description: pl do luke
+author: LukeRekt
+website: http://www.besteurful.nl
+main: me.luke.hg.Main
+database: false
+depend: [WorldEdit]
+prefix: Mushie
+ 
+commands:
+    finiciar:
+    kits:
