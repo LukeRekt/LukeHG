@@ -1,0 +1,9 @@
+name: LukeHG
+version: 1.0
+description: pl do luke
+author: LukeRekt
+main: me.luke.hg.Main
+database: false
+depend: [WorldEdit]
+ 
+commands:
