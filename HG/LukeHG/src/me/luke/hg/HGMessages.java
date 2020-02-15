@@ -45,7 +45,7 @@ public class HGMessages {
 		if (HGTimer.time > 60) {
 			int min = HGTimer.time / 60;
 			int seconds = HGTimer.time % 60;
-			return "" + min + " minutos e " + seconds + " segudos!";
+			return "" + min + " minutos e " + seconds + " segundos!";
 		}
 		return "" + HGTimer.time + " segundos!";
 	}
@@ -55,7 +55,7 @@ public class HGMessages {
 		if (HG.inuvunerableTime > 60) {
 			int min = HG.inuvunerableTime / 60;
 			int seconds = HG.inuvunerableTime % 60;
-			return "" + min + " minutos e " + seconds + " segudos!";
+			return "" + min + " minutos e " + seconds + " segundos!";
 		}
 		return "" + HG.inuvunerableTime + " segundos!";
 	}

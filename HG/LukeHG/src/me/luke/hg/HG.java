@@ -13,7 +13,7 @@ public class HG {
 	public static int maxPlayers = 20;
 	public static int minPlayers = 1;
 	public static int neededPlayers = 10;
-	public static int timeIntoStart = 20;
+	public static int timeIntoStart = 200;
 	public static int timeIntoOver = 10*60;
 	public static int timeToRestart = 20;
 	public static ArrayList<Integer> startTimes = new ArrayList<>();
@@ -26,3 +26,4 @@ public class HG {
 	public static HGState state = HGState.STARTING;
 	public static HashMap<Player, KitType> kits = new HashMap<>();
 }
+//todos os estados e principais vars

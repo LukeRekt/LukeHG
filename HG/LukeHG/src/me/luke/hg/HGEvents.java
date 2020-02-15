@@ -3,7 +3,9 @@ package me.luke.hg;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -26,6 +28,10 @@ public class HGEvents implements Listener {
 	
 	public static void join(Player p) {
 		
+		World world = p.getWorld();
+		Location loc = new Location(p.getWorld(), -5, 90, 9);
+		world.setSpawnLocation(loc.getBlockX(), loc.getBlockY() + 1, loc.getBlockZ());
+		
 		HG.players.remove(p);
 		HG.specs.remove(p);
 		p.setNoDamageTicks(20*60*60);
@@ -36,6 +42,7 @@ public class HGEvents implements Listener {
 		p.setSaturation(20);
 		p.setExhaustion(0);
 		PlayerInventory inv = p.getInventory();
+
 		if (HG.players.size() >= HG.maxPlayers) {
 			spec(p);
 			
@@ -97,7 +104,6 @@ public class HGEvents implements Listener {
 	}
 
 	public static void spec(Player p) {
-
 		HG.specs.add(p);
 		p.teleport(p.getWorld().getSpawnLocation()
 			.setDirection(p.getLocation().getDirection()));
@@ -130,8 +136,10 @@ public class HGEvents implements Listener {
 	public static void start() {
 
 		for (Player p : HG.players) {
-			p.teleport(p.getWorld().getSpawnLocation()
-				.setDirection(p.getLocation().getDirection()));
+			Location loc = new Location(p.getWorld(), -5, 90, 9);
+			//p.teleport(p.getWorld().getSpawnLocation()
+				//.setDirection(p.getLocation().getDirection()));
+			p.teleport(loc);
 			p.setNoDamageTicks(20*60*2);
 			PlayerInventory inv = p.getInventory();
 			p.getInventory().clear();
