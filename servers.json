@@ -20,8 +20,8 @@
     "name": "play.toastynetworks.net"
   },
   {
-    "uid": "localhost",
+    "uid": "192.168.0.114",
     "key": "cafezinho-oficial",
-    "name": "Local Server"
+    "name": "Server Oficial"
   }
 ]
