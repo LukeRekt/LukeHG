@@ -1,7 +1,8 @@
 {
   "mainMenu": {
     "state": "No Menu Principal",
-    "largeImageText": "Server Oficial: https://discord.gg/SMCmgMC"
+    "largeImageText": "Server Oficial: https://discord.gg/SMCmgMC",
+    "largeImageText": "cafezinho-oficial"
   },
   "loadingGame": {
     "state": "Carregando game...",
